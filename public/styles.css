@@ -1,0 +1,197 @@
+:root {
+  --bg1: #180612;
+  --bg2: #3b0f2a;
+  --bg3: #120816;
+  --card: rgba(255, 255, 255, 0.08);
+  --card2: rgba(255, 255, 255, 0.06);
+  --text: rgba(255, 245, 250, 0.96);
+  --muted: rgba(255, 225, 235, 0.72);
+  --border: rgba(255, 160, 210, 0.22);
+  --primary: #ff5fa2;
+  --primary2: #ff9bd0;
+  --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(1200px 600px at 20% 10%, rgba(255, 95, 162, 0.18), transparent 55%),
+    radial-gradient(900px 500px at 80% 30%, rgba(255, 155, 208, 0.16), transparent 52%),
+    linear-gradient(180deg, var(--bg1), var(--bg2) 45%, var(--bg3));
+  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+    Arial, "Apple Color Emoji", "Segoe UI Emoji";
+  overflow-x: hidden;
+}
+
+.sakura-canvas {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.container {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 28px 18px 56px;
+}
+
+.sub {
+  color: var(--muted);
+}
+
+.card {
+  margin-top: 18px;
+  padding: 18px;
+  border: 1px solid var(--border);
+  border-radius: 18px;
+  background: linear-gradient(180deg, var(--card), var(--card2));
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.hidden {
+  display: none;
+}
+
+h1 {
+  margin: 0 0 8px;
+}
+
+h2 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.field > span {
+  color: var(--muted);
+}
+
+input,
+textarea {
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 160, 210, 0.28);
+  border-radius: 12px;
+  padding: 10px 12px;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease, transform 0.15s ease;
+}
+
+textarea {
+  resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+  border-color: rgba(255, 95, 162, 0.7);
+  box-shadow: 0 0 0 4px rgba(255, 95, 162, 0.15);
+}
+
+.hint {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+.actions {
+  margin-top: 16px;
+}
+
+.primary {
+  background: linear-gradient(135deg, var(--primary), var(--primary2));
+  border: 1px solid rgba(255, 95, 162, 0.32);
+  color: white;
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.12s ease, filter 0.12s ease, box-shadow 0.12s ease;
+  box-shadow: 0 14px 30px rgba(255, 95, 162, 0.22);
+}
+
+.primary:hover:not(:disabled) {
+  filter: brightness(1.04);
+  transform: translateY(-1px);
+}
+
+.primary:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.kv .row {
+  display: flex;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.k {
+  width: 160px;
+  color: var(--muted);
+}
+
+.v {
+  flex: 1;
+  word-break: break-word;
+}
+
+.footer {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* Step-level form error (doesn't interrupt status card). */
+.form-error {
+  margin-top: 12px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 95, 162, 0.35);
+  background: rgba(255, 95, 162, 0.10);
+  color: rgba(255, 245, 250, 0.98);
+  z-index: 1;
+}
+
+/* Make the UI feel a bit more “premium”. */
+h1 {
+  letter-spacing: 0.2px;
+}
+
+.card h2 {
+  font-weight: 700;
+}
+
+/* Subtle button style for the refresh button. */
+#refreshBtn {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 160, 210, 0.22);
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.12s ease, border-color 0.12s ease, box-shadow 0.12s ease;
+}
+
+#refreshBtn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 95, 162, 0.6);
+  box-shadow: 0 0 0 4px rgba(255, 95, 162, 0.12);
+}
+
+

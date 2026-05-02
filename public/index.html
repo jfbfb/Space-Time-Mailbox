@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>寄给未来的你</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <canvas id="sakuraCanvas" class="sakura-canvas" aria-hidden="true"></canvas>
+    <main class="container">
+      <h1>寄给未来的你</h1>
+      <p class="sub">
+        这个页面会把你的“未来来信”记录到本地数据库，并在你选定的时间用 SMTP
+        给你发送真实邮件。
+      </p>
+      <div id="formError" class="form-error hidden" aria-live="polite"></div>
+
+      <section id="step1" class="card step">
+        <h2>1. 填写收信邮箱</h2>
+        <label class="field">
+          <span>未来收信邮箱</span>
+          <input
+            id="toEmail"
+            type="email"
+            autocomplete="email"
+            placeholder="you@example.com"
+            required
+          />
+        </label>
+        <div class="actions">
+          <button id="nextBtn1" class="primary" type="button">下一步</button>
+        </div>
+      </section>
+
+      <section id="step2" class="card step hidden">
+        <h2>2. 填写收到信的时间</h2>
+        <label class="field">
+          <span>收到信的时间（按你当前设备时区）</span>
+          <input id="receivedAtLocal" type="datetime-local" required />
+        </label>
+        <div class="actions">
+          <button id="backBtn2" class="secondary" type="button">上一步</button>
+          <button id="nextBtn2" class="primary" type="button">下一步</button>
+        </div>
+      </section>
+
+      <section id="step3" class="card step hidden">
+        <h2>3. 填写信的内容</h2>
+        <label class="field">
+          <span>信件内容</span>
+          <textarea
+            id="content"
+            rows="8"
+            maxlength="4000"
+            placeholder="写给未来的你..."
+            required
+          ></textarea>
+          <span id="charCount" class="hint">0 / 4000</span>
+        </label>
+        <div class="actions">
+          <button id="backBtn3" class="secondary" type="button">上一步</button>
+          <button id="submitBtn" class="primary" type="button">提交并安排发送</button>
+        </div>
+      </section>
+
+      <section id="statusCard" class="card hidden" aria-live="polite">
+        <h2>发送状态</h2>
+        <div class="kv">
+          <div class="row">
+            <span class="k">Letter ID</span>
+            <span id="letterId" class="v"></span>
+          </div>
+          <div class="row">
+            <span class="k">状态</span>
+            <span id="letterStatus" class="v"></span>
+          </div>
+          <div class="row">
+            <span class="k">计划发送时间(UTC)</span>
+            <span id="scheduledAtUtc" class="v"></span>
+          </div>
+          <div class="row">
+            <span class="k">失败原因</span>
+            <span id="lastError" class="v"></span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="refreshBtn" type="button">刷新状态</button>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>提示：请确保你的服务保持运行（常开本机）。</span>
+      </footer>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
+
