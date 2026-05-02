@@ -1,3 +1,9 @@
 node_modules 
 .env 
 .cursor 
+# 忽略程序文件
+*.exe
+*.zip
+
+# 忽略数据库
+*.sqlite
